@@ -1,0 +1,114 @@
+```markdown
+# Style Guides
+
+This document outlines the style guide for the BITS official website to ensure consistency in UI/UX design. It covers guidelines for typography, color schemes, and responsive layouts, along with best practices for standard UI components.
+
+## Table of Contents
+- [Typography](#typography)
+- [Color Scheme](#color-scheme)
+- [Responsive Layouts](#responsive-layouts)
+- [UI Components](#ui-components)
+- [Design Best Practices](#design-best-practices)
+
+## Typography
+
+Typography is crucial for a clean and cohesive design. Adhere to the following guidelines:
+
+- **Primary Font:**  
+  - **Font:** `Roboto`  
+  - **Usage:** Body text, paragraphs, and general descriptions.
+- **Secondary Font:**  
+  - **Font:** `Montserrat`  
+  - **Usage:** Headings, subheadings, and prominent call-to-action text.
+- **Font Sizes:**  
+  - **Headings:**  
+    - H1: 36px  
+    - H2: 30px  
+    - H3: 24px  
+    - H4: 20px  
+    - H5: 18px  
+    - H6: 16px  
+  - **Body Text:** 14px - 16px  
+- **Line Height:** A line height of 1.5 for body text enhances readability.
+- **Font Weight:**  
+  - Regular text: 400  
+  - Bold text: 700 for emphasis
+
+## Color Scheme
+
+A consistent color palette reinforces brand identity and provides visual coherence.
+
+- **Primary Colors:**
+  - **Primary Blue:** `#0056b3`  
+    - **Usage:** Navigation bar, primary buttons, and interactive links.
+  - **Primary Accent:** `#ff6600`  
+    - **Usage:** Call-to-action elements and key highlights.
+- **Secondary Colors:**
+  - **Light Gray:** `#f5f5f5`  
+    - **Usage:** Backgrounds, section dividers, and subtle UI elements.
+  - **Dark Gray:** `#333333`  
+    - **Usage:** Primary text, icons, and secondary buttons.
+- **Additional Colors:**
+  - **Success Green:** `#28a745`
+  - **Warning Yellow:** `#ffc107`
+  - **Error Red:** `#dc3545`
+- **Usage Guidelines:**
+  - Ensure high contrast between text and background elements for accessibility.
+  - Use accent colors sparingly to draw attention to critical actions.
+
+## Responsive Layouts
+
+Responsive design ensures the website provides a seamless experience across various devices.
+
+- **Mobile-First Approach:**  
+  - Design primarily for mobile devices, then scale up to larger screens.
+- **Breakpoints:**
+  - **Small Devices (Phones):** Up to 576px
+  - **Medium Devices (Tablets):** 577px to 768px
+  - **Large Devices (Desktops):** 769px to 1200px
+  - **Extra Large Devices (Large Desktops):** 1201px and above
+- **Fluid Grids:**  
+  - Utilize percentage-based widths or flexbox layouts to enable dynamic resizing of components.
+- **Media Queries:**  
+  - Use CSS media queries to adjust layout, typography, and images based on the device viewport.
+- **Navigation:**  
+  - Implement a collapsible (hamburger) menu for mobile devices to maintain a clean interface.
+- **Images and Media:**  
+  - Ensure images are responsive, adjusting smoothly to various screen sizes.
+
+## UI Components
+
+Standardize UI components to maintain visual consistency and usability.
+
+- **Buttons:**
+  - **Primary Button:**  
+    - Background: Primary blue  
+    - Text Color: White  
+    - Style: Rounded corners with hover effects
+  - **Secondary Button:**  
+    - Style: Outlined button using primary blue, with a transparent background
+- **Forms:**
+  - Input fields should have consistent padding, border radius, and clear border styling.
+  - Highlight focused inputs with subtle border changes or shadows.
+- **Cards:**
+  - Use cards for grouping related information. Maintain consistent padding and margins across all cards.
+- **Icons:**
+  - Use a consistent icon set throughout the website. Ensure icons are sized and aligned uniformly.
+
+## Design Best Practices
+
+- **Consistency:**  
+  - Maintain uniformity in colors, fonts, and spacing across the site.
+- **Accessibility:**  
+  - Ensure all text has sufficient contrast against backgrounds.
+  - Provide descriptive alt text for all images.
+- **Whitespace:**  
+  - Utilize whitespace effectively to prevent visual clutter and improve readability.
+- **User Experience:**  
+  - Design intuitive navigation and interactive elements.
+  - Provide immediate feedback on user actions (e.g., button presses, form submissions).
+
+---
+
+By adhering to these style guidelines, the BITS official website will achieve a consistent, professional, and accessible design, ensuring a positive user experience across all devices.
+```
