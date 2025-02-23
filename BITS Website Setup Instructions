@@ -1,3 +1,4 @@
+```markdown
 # BITS Website Setup Instructions
 
 This guide provides step-by-step instructions to set up the BITS official website locally. It covers the installation of dependencies, environment configuration, and running the website on your local machine. The website is built on WordPress, so this guide includes instructions specific to setting up a WordPress environment for development.
@@ -32,7 +33,154 @@ Ensure that the following software is installed on your system:
 3. Run the following command:
    ```bash
    git clone https://github.com/your-username/bits-website.git
+   ```
+4. Change into the project directory:
+   ```bash
+   cd bits-website
+   ```
 
+## Installing Dependencies
 
+### WordPress Core & Plugins
 
+1. **Core Installation:**
+   - Ensure you have a copy of WordPress. If the repository does not include the core, download it from the [WordPress.org](https://wordpress.org/download/).
+   - Place the WordPress core files in the project directory if they aren’t already included.
 
+2. **Plugin & Theme Dependencies:**
+   - **Manual Installation:** Download and extract necessary plugins/themes into the `wp-content/plugins` or `wp-content/themes` directories.
+   - **Composer (Optional):**
+     - If the project manages PHP packages via Composer, run:
+       ```bash
+       composer install
+       ```
+     - This command installs all required PHP libraries as specified in the `composer.json`.
+
+3. **Node.js Dependencies (If Applicable):**
+   - For themes or front-end build tools:
+     ```bash
+     npm install
+     ```
+   - To build frontend assets:
+     ```bash
+     npm run build
+     ```
+
+## Configuring the Environment
+
+### Environment Variables
+
+1. **Create a .env File:**
+   - In the root directory, create a file named `.env` to store environment-specific configurations.
+   - An example `.env` file:
+     ```env
+     # BITS Website Environment Configuration
+     WP_HOME=http://localhost/bits-website
+     WP_SITEURL=${WP_HOME}/wp
+     DB_NAME=bits_db
+     DB_USER=root
+     DB_PASSWORD=yourpassword
+     DB_HOST=localhost
+     ```
+   - Modify these values to match your local environment.
+
+### WordPress Configuration
+
+1. **Configure wp-config.php:**
+   - Duplicate the provided `wp-config-sample.php` file and rename it to `wp-config.php`.
+   - Open `wp-config.php` and update the database settings to match your `.env` file or local setup:
+     ```php
+     define( 'DB_NAME', getenv('DB_NAME') );
+     define( 'DB_USER', getenv('DB_USER') );
+     define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
+     define( 'DB_HOST', getenv('DB_HOST') );
+     ```
+   - Configure other settings as needed.
+
+## Database Setup
+
+1. **Create the Database:**
+   - Open your preferred MySQL client (e.g., phpMyAdmin, MySQL Workbench, or terminal).
+   - Create a new database:
+     ```sql
+     CREATE DATABASE bits_db;
+     ```
+
+2. **Import Existing Data (if available):**
+   - If a database dump (`dump.sql`) is provided, import it using:
+     ```bash
+     mysql -u root -p bits_db < path/to/dump.sql
+     ```
+
+## Running the Project Locally
+
+### Using a Local Server (XAMPP/MAMP/LocalWP)
+
+1. **For XAMPP/MAMP:**
+   - Place your project in the designated web directory (e.g., `htdocs` for XAMPP).
+   - Start the Apache and MySQL services.
+   - Access the site by navigating to: [http://localhost/bits-website](http://localhost/bits-website)
+
+### Using Docker (Optional)
+
+If a Docker configuration is provided:
+
+1. Make sure Docker and Docker Compose are installed.
+2. In the project root, run:
+   ```bash
+   docker-compose up -d
+   ```
+3. The website should be accessible at the configured domain (e.g., [http://localhost](http://localhost)).
+
+## Running Test Cases
+
+To verify the website’s functionality and security:
+
+1. **PHP Unit Tests:**
+   - If tests are written using PHPUnit, run:
+     ```bash
+     ./vendor/bin/phpunit
+     ```
+2. **Custom Test Scripts:**
+   - If additional test scripts are available in the `tests` directory:
+     ```bash
+     bash tests/run_tests.sh
+     ```
+3. **GitHub Actions:**
+   - The project may also include GitHub Actions workflows that automatically run tests. Check the Actions tab in the repository for details.
+
+## Troubleshooting
+
+### Common Issues and Solutions
+
+- **Database Connection Errors:**
+  - Verify that the credentials in `.env` and `wp-config.php` are correct.
+  - Ensure the MySQL service is running.
+
+- **Missing Dependencies:**
+  - Re-run `composer install` or `npm install` to ensure all dependencies are installed.
+  - Confirm that WordPress core files are correctly placed.
+
+- **File Permission Issues:**
+  - Ensure that the web server has read and write permissions for the project directories.
+
+### Logs
+
+- **Web Server Logs:**
+  - Check Apache or Nginx logs for server errors.
+- **PHP Error Logs:**
+  - Inspect PHP error logs to troubleshoot runtime issues.
+
+## Additional Notes
+
+- **Documentation Updates:**
+  - This guide is updated periodically. Always refer to the repository for the latest setup instructions.
+- **Contributing:**
+  - Follow the guidelines in `CONTRIBUTING.md` for any modifications to this documentation.
+- **Support:**
+  - For additional help, consult the project team or refer to the official WordPress documentation.
+
+---
+
+By following this guide, you should be able to set up a local development environment for the BITS website efficiently. If you encounter any issues, review the troubleshooting section or reach out to the development team for further assistance.
+```
