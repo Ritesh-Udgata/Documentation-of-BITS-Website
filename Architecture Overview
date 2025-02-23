@@ -1,0 +1,82 @@
+```markdown
+# Architecture Overview
+
+This section provides a high-level breakdown of the BITS website's tech stack and explains how the various components interact with each other.
+
+## Tech Stack Breakdown
+
+### Frontend
+- **WordPress Theme**: Utilizes a custom or pre-built WordPress theme to control the site’s look and feel.
+- **HTML/CSS/JavaScript**: Standard web technologies are used to render and enhance the user interface.
+- **Frontend Frameworks (Optional)**: Depending on the implementation, frameworks like Bootstrap or even React (in a headless WordPress setup) can be integrated to improve UI/UX.
+
+### Backend
+- **WordPress CMS**: Acts as the core content management system. It orchestrates content delivery, user management, and plugin integrations.
+- **PHP**: The primary programming language that powers WordPress and its plugins.
+- **Plugins**: Extend the functionality of the website. Custom plugins may also be developed to meet specific requirements.
+
+### Database
+- **MySQL/MariaDB**: The relational database system stores all site data, including posts, pages, user information, and plugin data.
+
+### Server & Hosting
+- **Web Server**: Apache or Nginx serves the WordPress site to end users.
+- **Hosting Environment**: The site is deployed on a cloud server or managed hosting platform, ensuring scalability and availability.
+
+### Version Control & CI/CD
+- **Git & GitHub**: The source code is managed through Git, with GitHub providing a platform for collaboration, version control, and code review.
+- **GitHub Actions**: Automated workflows are set up to build the project, run tests, and deploy changes. This CI/CD pipeline ensures that new code is integrated smoothly.
+- **Docker (Optional)**: Containerization may be used to create consistent development, testing, and production environments.
+
+### Additional Tools
+- **Composer**: Manages PHP dependencies, ensuring that all required libraries are installed and up-to-date.
+- **npm**: Handles frontend dependencies and build tools, particularly useful if the project involves custom JavaScript or CSS pre-processing.
+
+## Component Interactions
+
+1. **User Interaction**:  
+   - Users access the website through a web browser. The browser makes HTTP requests to the server.
+
+2. **Web Server**:  
+   - The request is handled by a web server (Apache/Nginx), which forwards it to the WordPress application.
+
+3. **WordPress CMS Processing**:  
+   - WordPress uses PHP to process the request. It fetches content and settings, which may include executing custom plugins or themes.
+   - The CMS then renders the appropriate HTML, CSS, and JavaScript for the user.
+
+4. **Database Communication**:  
+   - WordPress interacts with the MySQL/MariaDB database to retrieve or update content and configuration data as required.
+
+5. **CI/CD Pipeline**:  
+   - Developers push code changes to the GitHub repository.
+   - GitHub Actions triggers workflows that automatically run tests, build the project, and deploy updates.
+   - This automation ensures that only verified changes reach the production environment.
+
+6. **Version Control**:  
+   - Git tracks all changes to the codebase, allowing for efficient collaboration and rollback if necessary.
+   - Branching strategies (like GitFlow) help manage development, testing, and production releases.
+
+7. **Environment Configuration**:  
+   - Environment-specific settings are managed through configuration files (e.g., `.env`, `wp-config.php`), ensuring that the application runs correctly across different stages (development, testing, production).
+
+## Diagram
+
+Below is a simplified diagram illustrating the interactions among the components:
+
+```mermaid
+graph LR
+    A[User Browser] --> B[Web Server (Apache/Nginx)]
+    B --> C[WordPress CMS (PHP)]
+    C --> D[MySQL/MariaDB Database]
+    C --> E[Plugins & Themes]
+    F[GitHub Repository] --> G[CI/CD Pipeline (GitHub Actions)]
+    G --> B
+```
+
+- **User Browser**: Initiates requests and displays the site.
+- **Web Server**: Acts as the intermediary, routing requests to the CMS.
+- **WordPress CMS**: Processes requests, manages content, and interacts with plugins.
+- **Database**: Stores and retrieves data required by WordPress.
+- **GitHub & CI/CD**: Ensures automated testing, building, and deployment of new code.
+
+This architecture ensures that the BITS website is robust, maintainable, and scalable, with a clear separation of concerns between content management, presentation, and automated deployment workflows.
+```
